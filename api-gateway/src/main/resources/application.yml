@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+      routes:
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+
+        - id: catalog-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/movies/**, /locations/**, /theatres/**, /screens/**, /seatlayouts/**
+          filters:
+            - JwtAuthenticationFilter
+
+        - id: booking-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/booking/**
+          filters:
+            - JwtAuthenticationFilter
+
+        - id: notification-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/notifications/**
+          filters:
+            - JwtAuthenticationFilter
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970

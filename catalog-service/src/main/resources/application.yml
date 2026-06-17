@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  application:
+    name: catalog-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/cinereserve_catalog
+    redis:
+      host: localhost
+      port: 6380
+
+# Configure logging for easier visibility into database and cache calls
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+    org.springframework.data.redis: INFO

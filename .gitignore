@@ -1,0 +1,41 @@
+# Maven
+**/target/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.versionsBackup
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+*.iws
+.settings/
+.classpath
+.project
+.factorypath
+.metadata/
+.recommenders/
+.vscode/
+
+# Node/Vite/React
+**/node_modules/
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# System/Logs
+*.log
+.DS_Store
+Thumbs.db
